@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman Game</title>
+</head>
+<body>
+        <h1>Welcome to Hangman!</h1>
+        <h2>The fastfood edition.</h2>
+        <br>
+        used just during coding, will be removed
+        <p id="demo"></p> 
+        <br>
+        used to display the size of word chosen and to show user guesses
+        <p id="demo1"></p> 
+        <br>
+        used to display the past letter choices
+        <p id="demo2"></p>
+
+</body>
+<script>
+
+    // create array for words
+var words = ["pizza", "hotdogs", "corndog", "fries", "donuts"];
+
+        var el = document.getElementById("demo");
+        el.innerHTML = words;
+
+
+    // create a random picker for words
+    var word = words[Math.floor(Math.random() * words.length)];
+    console.log(word);
+
+
+    // create an empty array for the user to guess into
+var answerArray = [];
+    for (var i = 0; i < word.length; i++) {
+        answerArray[i] = "_";
+    }
+        var el = document.getElementById("demo1");
+        el.innerHTML = answerArray.join(" ");
+        console.log(answerArray);
+     // document.getElementById("answer-array").innerHTML = answerArray; not sure if this will work
+    
+
+    //create an array for missed letters to go in, this also keeps track of guesses remaining.
+ var lettersGuessedArray = [];
+    for (var g = 0; g < word.length; i++) {
+        lettersGuessedArray[g] = "_";
+    }
+        var el = document.getElementById("demo2");
+        el.innerHTML = lettersGuessedArray.join(" ");
+        console.log(lettersGuessedArray);  
+    // document.getElementById("answer-array").innerHTML = answerArray; not sure if this will work
+    
+
+ // loop for the game
+
+    
+
+    // user picks a letter
+    document.onkeyup = function(event) {
+    var guess = event.key;
+    console.log(guess);
+    }
+
+    // setting var remaining letters = to the length of the word chosen to make a countdown counter below
+    var remainingLetters = word.length 
+
+    while (remainingLetters > 0) {
+
+        //put the letter selected into html
+
+
+            var el = document.getElementById("demo2");
+            el.innerHTML = answerArray.join(" ");
+            console.log(answerArray.join(" "));
+           
+        
+  
+       
+      
+            if (guess === null) {
+                //cancels game
+                break;
+            }
+                //run this if more than one letter is picked
+                else if (guess.length !== 1) {
+                    alert("Chose only one letter");
+            } 
+                // this will insert the users Guess
+                else {
+                    for (var j = 0; j < word.length; j++) {
+                        //this will check all the letters from the (word, computers choice)
+                        //and compare it to the guess by running the word loop
+                        if (word[j] === guess) {
+                        //this will put the guess into the answerArray
+                            answerArray[j] = guess;
+                            var el = document.getElementById("demo1");
+                            el.innerHTML = guess;
+                            
+                        //this will minus one from remainingLetters each time
+                            remainingLetters--;
+                            }
+                    }
+            }
+           //this closes the game loop
+    }
+
+el.innerHTML = answerArray.join(" ");
+
+
+
+ //   console.log(answerArray.join(" "));
+  //  document.getElementById("answer-array").innerHTML = "Good Job! the answer was " + word + ".";
+  //  alert("good job the answer was " + word + ".");
+
+  //  var el = document.getElementById("demo");
+ //   el.innerHTML = words;
+
+
+
+
+    </script>
+</html>
+
+
