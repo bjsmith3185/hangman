@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+  }
+
+.jumbotron {
+    
+}
+
+.container {
+    background: yellow;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+.lower-container {
+    position: relative;
+    height: 420px;
+    display: block;
+}
+
+.lower-container:after {
+    content: "";
+    background-image: url("../Images/fastfood.jpg");
+    opacity: .2;
+    position: absolute;
+    z-index: -1;
+}
+
+#statement {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 99;
+    opacity: 1;
+   }
+
+#guess-box-top {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    margin-top: 100px;
+}
+
+#missed-box-lower {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    margin-top: 75px;
+}
+  
