@@ -25,9 +25,7 @@ var remainingLetters = word.length
 
 //create an array for missed letters to go in, this also keeps track of guesses remaining.
 var lettersGuessedArray = [];
-for (var g = 0; g < word.length; g++) {
-    lettersGuessedArray[g] = "_";
-}
+
 var c = document.getElementById("guessed-wrong");
 c.innerHTML = lettersGuessedArray.join(" ");
 console.log(lettersGuessedArray);  
@@ -54,27 +52,28 @@ document.onkeyup = function(event) {
 //            answerArray = setCharAt(answerArray,[j],guess);
 //            doucment.getElementById("display-size").innerHTML = answerArray;
  //           }
-
-
-            
+           
 //  0730        var e = document.getElementById("display-size");
 //              var answerArray = e.replace([j], guess);
 //              doucment.getElementById("display-size").innerHTML = answerArray;
 
-
-
-              answerArray[j] = guess;
-             var e = document.getElementById("display-size");
-            e.innerHTML = guess;
+            answerArray[j] = guess;
+            var e = document.getElementById("display-size");
+            e.innerHTML = answerArray.join(" ");
             
+            console.log(answerArray.join(" "));
           
             //this will minus one from remainingLetters each time
             remainingLetters--;
+            //return;  
         }
         else {
             //put the wrong guess into the array
+            lettersGuessedArray.push(guess);
+
             var g = document.getElementById("guessed-wrong");
-            g.innerHTML = guess;
+            g.innerHTML = lettersGuessedArray.join(" ");
+            //return; //where do i need the retrn?
         }
     }
 }

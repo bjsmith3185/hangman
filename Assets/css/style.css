@@ -17,7 +17,7 @@ h2 {
 
 .lower-container {
     position: relative;
-    height: 420px;
+    height: 500px;
     display: block;
 }
 
@@ -25,6 +25,10 @@ h2 {
     content: "";
     background-image: url("../Images/fastfood.jpg");
     opacity: .2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     position: absolute;
     z-index: -1;
 }
